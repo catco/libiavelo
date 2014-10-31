@@ -7,3 +7,5 @@ Using:
 * https://developer.jcdecaux.com/
 * http://leafletjs.com/
 * http://getbootstrap.com/
+
+We have to choose between Google Maps and OpenStreetMap.
