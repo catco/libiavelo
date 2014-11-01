@@ -13,6 +13,7 @@ Nov 1, 2014
 - Fix legend width
 - Add markers source files
 - Add icons' credits
+- Add favicon
 
 
 
