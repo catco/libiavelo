@@ -13,6 +13,43 @@
         width: 100%;
         font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
       }
+      .info {
+        padding: 6px 8px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255,255,255,1);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        text-align: right;
+      }
+      .info h4 {
+        margin: 0 0 5px;
+        color: #555;
+      }
+      .legend {
+        text-align: left;
+        line-height: 18px;
+        color: #555;
+      }
+      .legend p {
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+      .legend h4 + p {
+        border-bottom:1px solid #ddd;
+        padding-bottom: 15px;
+      }
+      .legend img {
+        height:20px;
+        margin-right:6px;
+        margin-left: 20px;
+      }
+      .legend p img:first-child{
+        margin-left: 0;
+      }
+      .leaflet-control-layers, .legend {
+        width:250px;
+      }
     </style>
   </head>
   <body>
@@ -23,12 +60,12 @@
       var map = L.map('map').setView([50.4647, 4.8670], 15);
       // Set a 'fond de plan'
       L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
           maxZoom: 18
       }).addTo(map);
       // Set custom markers
       var redMarker = L.icon({
-          iconUrl: 'images/marker-icon-bike-red.png',
+          iconUrl: 'images/marker-icon-bike-orange.png',
           shadowUrl: 'images/marker-shadow.png',
           iconAnchor: [16, 37],
           popupAnchor: [-4, -30]
@@ -46,13 +83,13 @@
           popupAnchor: [-4, -30]
       });
       var nobikeMarker = L.icon({
-          iconUrl: 'images/marker-icon-bike-0.png',
+          iconUrl: 'images/marker-icon-bike-red.png',
           shadowUrl: 'images/marker-shadow.png',
           iconAnchor: [16, 37],
           popupAnchor: [-4, -30]
       });
       var closedMarker = L.icon({
-          iconUrl: 'images/marker-icon-bike-closed.png',
+          iconUrl: 'images/marker-icon-bike-grey.png',
           shadowUrl: 'images/marker-shadow.png',
           iconAnchor: [16, 37],
           popupAnchor: [-4, -30]
@@ -114,7 +151,17 @@
           });
       });
 map.addLayer(stations).attributionControl.addAttribution('Li bia velo data &copy; <a href="https://developer.jcdecaux.com" target="_blank">JCDecaux</a> - Bicycle icon designed by <a href="http://www.thenounproject.com/Askvictor" target="_blank">Andrew Jones</a> from the <a href="http://www.thenounproject.com" target="_blank">Noun Project</a> - BIG THANKS TO <a href="https://github.com/dbutaye" target="_blank">CHOEKE</a> FOR THE REST!');
-
+      // Set a legend
+      var info = L.control({position: 'bottomright'});
+      info.onAdd = function (map) {
+          this._div = L.DomUtil.create('div', 'info legend');
+          this.update();
+          return this._div;
+       };
+      info.update = function (props) {
+          this._div.innerHTML = '<h4>V&Eacute;LO(S) DISPONIBLE(S)</h4><p><img src="images/marker-icon-bike-red.png" />0<img src="images/marker-icon-bike-orange.png" />1 - 5<img src="images/marker-icon-bike-yellow.png" />6 - 15<img src="images/marker-icon-bike-green.png" />+ 15</p><p><img src="images/marker-icon-bike-grey.png" />station ferm&eacute;e</p>';
+      };
+      info.addTo(map);
     </script>
   </body>
 </html>
