@@ -3,6 +3,11 @@ Nov 1, 2014
 
 - Add leaflet sources
 - Init the map
+- Add doctype and meta viewport
+- Set features, show stations
+- Add custom markers and jQuery 1.10.2 min
+- Add gitignore file
+- Update README
 
 
 
