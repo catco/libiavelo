@@ -10,3 +10,5 @@ Using:
 
 Icons:
 * http://www.flaticon.com/
+
+A special big thank to [Choeke](https://github.com/dbutaye/).
