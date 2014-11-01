@@ -10,6 +10,9 @@ Nov 1, 2014
 - Update README
 - Add a link to Choeke's GitHub page
 - Change markers
+- Fix legend width
+- Add markers source files
+- Add icons' credits
 
 
 
