@@ -7,3 +7,6 @@ Using:
 * https://developer.jcdecaux.com/
 * http://leafletjs.com/
 * http://www.openstreetmap.org/
+
+Icons:
+* http://www.flaticon.com/
