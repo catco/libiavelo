@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>La bia velo</title>
+    <link rel="stylesheet" type="text/css" href="leaflet.css" />
+    <style type="text/css">
+      body, #map{
+        margin: 0px;
+        height: 100%;
+        width: 100%;
+        font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript" src="leaflet.js"></script>
+    <script type="text/javascript">
+      // Init the map
+      var map = L.map('map').setView([50.4660, 4.8650], 15);
+      // Set a 'fond de plan'
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+          maxZoom: 18
+      }).addTo(map);
+    </script>
+  </body>
+</html>
